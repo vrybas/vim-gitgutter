@@ -193,7 +193,7 @@ endfunction
 
 function! s:run_diff(realtime)
   if a:realtime
-    let cmd = 'git diff --no-ext-diff --no-color -U0 --no-index ' . g:gitgutter_diff_args . ' -- ' . shellescape(s:file()) . ' - '
+    let cmd = 'diff -U0 ' . g:gitgutter_diff_args . ' <(git show :' . fnamemodify(s:file(), ':.') . ') - '
   else
     let cmd = 'git diff --no-ext-diff --no-color -U0 ' . g:gitgutter_diff_args . ' ' . shellescape(s:file())
   endif
