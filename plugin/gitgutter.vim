@@ -549,7 +549,7 @@ endif
 augroup gitgutter
   autocmd!
 
-  autocmd CursorHold * call GitGutter(s:current_file(), 1)
+  autocmd CursorHold,CursorHoldI * call GitGutter(s:current_file(), 1)
 
   if g:gitgutter_eager
     autocmd BufEnter,BufWritePost,FileWritePost,FileChangedShellPost * call GitGutter(s:current_file())
