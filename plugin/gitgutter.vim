@@ -201,7 +201,7 @@ function! s:run_diff(realtime)
     let cmd .= s:grep_command
   endif
   if a:realtime
-    let diff = system(s:command_in_directory_of_file(cmd), join(getline(1,'$'),"\n"))
+    let diff = system(s:command_in_directory_of_file(cmd), join(getline(1,'$'),"\n")."\n")
   else
     let diff = system(s:command_in_directory_of_file(cmd))
   endif
